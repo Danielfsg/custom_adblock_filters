@@ -1,0 +1,223 @@
+###########################################################################################
+! Title: aniwave Filter-list: No Banner Ads
+! Expires: 1 days
+! Description: Filters to fix common issues with aniwave and block malicious code
+! Homepage: https://www.reddit.com/r/9anime/comments/c330dx/ublock_origin_filter_fixes/
+# Last Update: 4/1/2022 10:38 PM EDT
+###########################################################################################
+# General 9Anime Fixes
+# Average user experence fixes (Fixes the website)
+@@||aniwave.*$~third-party,domain=aniwave.to|aniwave.id|aniwave.cz|aniwave.ws|aniwave.me|aniwave.center|aniwave.club
+
+# Fix for certain videos never loading, mostly on mobile but it may cause issues on personal computers too.
+# This also resolves certain stylesheet issues, wherein it wouldn't load the css file.
+@@||bunnycdn.*
+
+# Ensuring the recaptcha api always loads
+@@||google.com/recaptcha/*
+###########################################################################################
+# 9Anime Visual Tweaks
+###########################################################################################
+# The following removes empty ad-windows
+aniwave.*##section.sda
+
+# Inject scriplets to prevent creation of sidebar ads & rogue advertisements.
+aniwave.*##+js(window.open-defuser)
+aniwave.*##+js(abort-on-property-read, mm)
+aniwave.*##+js(abort-on-property-write, _pop)
+aniwave.*##+js(set-constant, console.clear, undefined)
+aniwave.*##+js(abort-current-script, Math, break;case $.)
+aniwave.*##+js(abort-current-inline-script, window.open, Cookie)
+aniwave.*##+js(abort-current-script, setTimeout, String.fromCharCode)
+###########################################################################################
+#Disqus Fixes & Tweaks
+###########################################################################################
+#Advertising & Tracking Removal
+||disqus.com/api/ping
+||referrer.disqus.com^
+###########################################################################################
+# External Player Tweaks
+###########################################################################################
+# Common
+# Anti-Advertisements
+||google-analytics.com^
+||glamourgreek.com^
+||beefraidmob.com^
+||venetrigni.com^
+||toromclick.com^
+||adplatform.io^
+||xmllover.com^
+||24vunvrv.com^
+||xmlrtb.com^
+||zap.buzz^
+###########################################################################################
+# Vidstream
+# Anti-Advertising & Fixes
+||adgrx.com^
+||jwpltx.com^
+||venetrigni.com^
+||marijuanaturf.com^
+||addresseepaper.com^
+||worldspromising.com^
+||gaietyastonished.com^
+||raspberryareaurge.com^
+||bootsuserstruthful.com^
+||regulationprivilegescan.top^
+vidstream.ru##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+vidstream.pro##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+vizcloud2.online##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+vidstreamz.online##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+vizcloud.xyz##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+
+vidstream.ru##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+vidstream.pro##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+vizcloud2.online##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+vidstreamz.online##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+vizcloud.xyz##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+
+
+/ad-inject/*$~image
+###########################################################################################
+# StreamTape
+# Anti-Advertising & Fixes
+streamtape.*##[class*="bn-container"], div[style*="z-index: 300000;"]
+streamtape.*#@#.google-ad
+streamta.pe*#@#.google-ad
+||adsco.re^
+||mc.yandex.ru^
+||onergong.com^
+||roujaufu.net^
+||streamtape.com/adult
+||inpagepush.com^$important
+||in-page-push.com^$important
+@@||google.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
+@@||gstatic.com^$script,domain=streamtape.com|streamtape.net|streamta.pe
+###########################################################################################
+# MyCloud
+# Anti-Advertising & Fixes
+||mcloud.to/log/
+||mcloud2.to/log/
+||mzcloud.life/log/
+||mcloud.to/A/*.js^
+||mcloud2.to/A/*.js^
+||mzcloud.life/A/*.js^
+||addresseepaper.com^
+||runnersgunpowder.com^
+||regulationprivilegescan.top^
+
+# Pause Ads
+mcloud.to##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+mcloud2.to##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+mzcloud.life##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34) none repeat scroll 0% 0%;"]
+
+# Chrome Specific
+mcloud.to##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+mcloud2.to##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+mzcloud.life##div[style*="position: absolute; left: 50%; top: 50%; width: 300px; height: 250px; margin-left: -150px; margin-top: -125px; background: rgb(34, 34, 34);"]
+
+# Ensure Key connections function
+@@||mcloud.to^$generichide
+@@||mcloud2.to^$generichide
+@@||mzcloud.life^$generichide
+###########################################################################################
+# Mp4Upload 
+# Anti-Advertising & Fixes
+||tdmpoinu.com^
+||glersakr.com^
+||ribsaiji.com^
+||geedoovu.net^
+||snagbaudhulas.com^
+||mp4upload.com/images/hdblue.png$popup
+|https://$script,third-party,domain=mp4upload.com
+*$script,redirect-rule=noopjs,domain=mp4upload.com
+
+# Visual Tweaks (Overlay removal, Logo removal)
+mp4upload.com###lay.lay
+mp4upload.com##.vjs-logo
+mp4upload.com###overlay, div.container
+###########################################################################################
+# VideoVard
+# Anti-Advertising & Fixes
+||pubtrack.co^
+||cagothie.net^
+||news-easy.org^
+||collidetunnel.com^
+||fendhaunteddelay.com^
+||octaviancontrast.com^
+||kolkwi4tzicraamabilis.com^
+||questionsadjournasleep.com^
+@@/js/prebid-ads.js$script,1p
+@@||cdnjs.cloudflare.com/ajax/libs/fuckadblock$script
+
+# Visual Tweaks (Overlay removal)
+videovard.to,videovard.sx###MyDickIsFat
+videovard.to,videovard.sx###NotReallyYouHaveSmallOne
+videovard.to,videovard.sx###nux > div > div > div[id]
+videovard.to,videovard.sx##.jw-reset.jw-wrapper:style(z-index:2147483647 !important)
+###########################################################################################
+# uBO Imports
+###########################################################################################
+# Vidstream uBO Injects
+vidstream.*##+js(abort-on-property-read, open)
+vizstream.*##+js(abort-on-property-read, open)
+vizcloud2.online##+js(abort-on-property-read, open)
+vidstreamz.online##+js(abort-on-property-read, open)
+
+# This filter stops Vidstream from disabling the right-click context menu.
+vidstream.*##+js(aopr, HTMLElement.prototype.oncontextmenu)
+vizstream.*##+js(aopr, HTMLElement.prototype.oncontextmenu)
+vizcloud2.online##+js(aopr, HTMLElement.prototype.oncontextmenu)
+vidstreamz.online##+js(aopr, HTMLElement.prototype.oncontextmenu)
+
+# StreamTape
+streamtape.*##+js(abort-current-inline-script, document.createElement, 'script')
+streamtape.*##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
+streamtape.*##+js(abort-on-property-write, _pop)
+streamtape.*##+js(no-setInterval-if, adblock)
+streamtape.*##+js(set-constant, towait, 0)
+streamtape.*##+js(window.open-defuser)
+streamta.pe##+js(abort-current-inline-script, document.createElement, 'script')
+streamta.pe##+js(abort-on-stack-trace, Math.random, /\st\.[a-zA-Z]*\s/)
+streamta.pe##+js(abort-on-property-write, _pop)
+streamta.pe##+js(no-setInterval-if, adblock)
+streamta.pe##+js(set-constant, towait, 0)
+streamta.pe##+js(window.open-defuser)
+
+# This filter stops StreamTape from disabling the right-click context menu.
+streamtape.*##+js(addEventListener-defuser.js, contextmenu)
+streamta.pe##+js(addEventListener-defuser.js, contextmenu)
+
+# MyCloud
+mcloud.to##+js(no-setInterval-if, break)
+mcloud.to##+js(abort-on-property-read, open)
+mcloud.to##+js(abort-current-inline-script, Math, XMLHttpRequest)
+mzcloud.life##+js(no-setInterval-if, break)
+mzcloud.life##+js(abort-on-property-read, open)
+mzcloud.life##+js(abort-current-inline-script, Math, XMLHttpRequest)
+
+# Mp4Upload
+mp4upload.com##+js(set, document.documentElement.appendChild, noopFunc)
+mp4upload.com##+js(abort-current-script, JSON.parse, break;case $.)
+mp4upload.com##+js(abort-on-property-write, adcashMacros)
+mp4upload.com##+js(abort-on-property-write, _pop)
+mp4upload.com##+js(popads-dummy)
+
+# VideoVard
+videovard.*#@#+js(addEventListener-defuser, mouseup, catch)
+videovard.*##+js(abort-on-property-read, FuckAdBlock)
+videovard.*##+js(no-setInterval-if, 0x)
+videovard.*##+js(window.open-defuser)
+###########################################################################################
+# Standalone imports from other filter-lists
+###########################################################################################
+# 9Anime Ads & Ad-Trackers
+||evergreensame.com^
+||onesignal.com^
+||pushyfen.com^
+||bidgear.com^ni
+||advinci.uno^
+||revrtb.com^
+||apus.tech^
+||amung.us^
+||bebi.com^
+###########################################################################################
